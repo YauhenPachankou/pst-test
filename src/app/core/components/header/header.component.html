@@ -1,0 +1,13 @@
+<mat-toolbar class="header">
+  <p class="header__title">Новости</p>
+  <div class="user"
+       *ngIf="(isLoggedIn$ | async)">
+    <p class="user__name">
+      {{ (isAdmin$ | async) ? 'Администратор' : 'Пользователь' }} {{ (user$ | async)?.name }}
+    </p>
+    <button class="user__logout"
+            (click)="logout()"
+            type="button"
+            mat-raised-button>Выход</button>
+  </div>
+</mat-toolbar>

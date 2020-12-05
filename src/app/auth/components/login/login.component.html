@@ -1,0 +1,36 @@
+<form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+  <mat-card class="login">
+    <p class="login__title">Вход</p>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Введите имя</mat-label>
+      <label>
+        <input matInput formControlName="name">
+      </label>
+      <mat-error *ngIf="loginForm.get('name').invalid">Поле не может быть пустым</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Введите email</mat-label>
+      <label>
+        <input matInput placeholder="smth@example.com" formControlName="email">
+      </label>
+      <mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').errors.required">
+        Поле не может быть пустым
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').errors.email">
+        Некорректный email
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Введите пароль</mat-label>
+      <label>
+        <input matInput formControlName="password">
+      </label>
+      <mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').errors.required">
+        Поле не может быть пустым и должно содержать не менее 6 символов
+      </mat-error>
+    </mat-form-field>
+
+    <button class="login__submit" mat-raised-button [disabled]="loginForm.invalid">Войти</button>
+  </mat-card>
+</form>

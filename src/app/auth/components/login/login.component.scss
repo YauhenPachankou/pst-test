@@ -1,0 +1,26 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  min-height: 400px;
+  margin: 100px auto 0;
+}
+
+.login__title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login__submit {
+  background-color: cadetblue;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-error {
+  font-size: 14px;
+}
