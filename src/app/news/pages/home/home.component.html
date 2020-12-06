@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="grid">
+  <app-news-item *ngFor="let article of news$ | async"
+                 [article]="article"
+                 [btnText]="btnText"
+                 [isAdmin]="isAdmin$ | async"
+                 (switchArticleStatus)="onAddArticleToFavorites($event)"
+                 (removeNews)="onRemoveArticle($event)">
+  </app-news-item>
+</div>

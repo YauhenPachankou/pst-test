@@ -26,10 +26,11 @@
       <label>
         <input matInput formControlName="password">
       </label>
-      <mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').errors.required">
+      <mat-error *ngIf="loginForm.get('password').invalid && loginForm.get('password').errors.required">
         Поле не может быть пустым и должно содержать не менее 6 символов
       </mat-error>
     </mat-form-field>
+    <mat-checkbox class="login__as-admin" (change)="isAdminCheck($event.checked)">Я администратор</mat-checkbox>
 
     <button class="login__submit" mat-raised-button [disabled]="loginForm.invalid">Войти</button>
   </mat-card>

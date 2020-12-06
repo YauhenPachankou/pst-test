@@ -10,7 +10,6 @@ export const enum AuthActionsTypes {
 
 export const logIn = createAction(AuthActionsTypes.LOG_IN, props<IUserModel>());
 export const logOut = createAction(AuthActionsTypes.LOG_OUT);
-export const logInAsadmin = createAction(AuthActionsTypes.LOG_IN_AS_ADMIN);
-
+export const logInAsAdmin = createAction(AuthActionsTypes.LOG_IN_AS_ADMIN);
 
 

@@ -4,7 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import * as AuthActions from 'src/app/auth/store/auth.actions';
-import { AppState } from 'src/app/auth/store/auth.selectors';
+import * as AuthSelectors from 'src/app/auth/store/auth.selectors';
+import * as NewsActions from '../../../news/store/news.actions';
+import * as NewsSelectors from '../../../news/store/news.selectors';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +16,13 @@ import { AppState } from 'src/app/auth/store/auth.selectors';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  isAdmin: boolean;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private store: Store<AppState>
+    private storeAuth: Store<AuthSelectors.IAuthAppState>,
+    private storeNews: Store<NewsSelectors.INewsAppState>,
   ) {}
 
   ngOnInit(): void {
@@ -29,8 +33,17 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  isAdminCheck(checked: boolean): void {
+    this.isAdmin = checked;
+  }
+
   login(form: FormGroup): void {
-    this.store.dispatch(AuthActions.logIn(form.value));
+    if (this.isAdmin) {
+      this.storeAuth.dispatch(AuthActions.logInAsAdmin());
+    }
+    this.storeAuth.dispatch(AuthActions.logIn(form.value));
+    this.storeNews.dispatch(NewsActions.fetchNews());
     this.router.navigate(['/home']);
   }
+
 }

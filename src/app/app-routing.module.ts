@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './auth/components/login/login.component';
+import { LoginComponent } from 'src/app/auth/components/login/login.component';
 
 const routes: Routes = [
   {
@@ -15,9 +15,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./news/news.module').then(m => m.NewsModule),
-    // canLoad: [AuthGuard]
-  },
+    loadChildren: () => import('./news/news.module').then(m => m.NewsModule)
+  }
 ];
 
 @NgModule({

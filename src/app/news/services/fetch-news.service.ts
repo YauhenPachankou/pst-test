@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-import { environment } from '../../../environments/environment';
-import { INewsResponseModel } from '../models/news-response.model';
+import { environment } from 'src/environments/environment';
+import { INewsResponseModel } from 'src/app/news/models/news-response.model';
 
 @Injectable({
   providedIn: 'root'

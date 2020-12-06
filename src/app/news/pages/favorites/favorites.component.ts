@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+
+import * as NewsActions from 'src/app/news/store/news.actions';
+import * as NewsSelectors from 'src/app/news/store/news.selectors';
+import { IArticle } from 'src/app/news/models/news-response.model';
 
 @Component({
   selector: 'app-favorites',
@@ -7,9 +13,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  constructor() { }
+  favoriteNews$: Observable<IArticle[]>
+  btnText = 'Убрать из избранного';
+
+  constructor(private store: Store<NewsSelectors.INewsAppState>) {}
 
   ngOnInit(): void {
+    this.favoriteNews$ = this.store.select(NewsSelectors.selectFavoritesNews);
+  }
+
+  onRemoveArticleFromFavorite(article: IArticle): void {
+    this.store.dispatch(NewsActions.removeNewsFromFavorites(article));
   }
 
 }

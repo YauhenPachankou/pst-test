@@ -1,5 +1,8 @@
 <mat-toolbar class="header">
-  <p class="header__title">Новости</p>
+  <div class="menu">
+    <a class="menu__item" [routerLink]="['/home']" routerLinkActive="menu__item--active">Новости</a>
+    <a class="menu__item" [routerLink]="['/favorites']" routerLinkActive="menu__item--active">Избранное</a>
+  </div>
   <div class="user"
        *ngIf="(isLoggedIn$ | async)">
     <p class="user__name">

@@ -4,8 +4,19 @@
   padding: 20px 40px;
 }
 
-.header__title {
-  margin: 0;
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu__item {
+  margin-right: 20px;
+
+  color: #ffffff;
+
+  &--active {
+    color: #5f9ea0;
+  }
 }
 
 .user {

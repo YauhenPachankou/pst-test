@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { HomeComponent } from 'src/app/news/pages/home/home.component';
+import { FavoritesComponent } from 'src/app/news/pages/favorites/favorites.component';
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'favorites',
-    component: FavoritesComponent
+    component: FavoritesComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

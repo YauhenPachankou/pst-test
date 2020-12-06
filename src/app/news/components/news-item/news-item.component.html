@@ -1,1 +1,23 @@
-<p>news-item works!</p>
+<mat-card class="article">
+  <mat-card-header class="article__header">
+    <mat-card-title class="article__title">{{ article.title }}</mat-card-title>
+    <mat-card-subtitle class="article__subtitle">{{ article.publishedAt | date }}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="article__image" mat-card-image [src]="article.urlToImage" alt="Article image">
+  <mat-card-content class="article__content">
+    <p>{{ article.content }}</p>
+  </mat-card-content>
+  <div class="article__buttons">
+    <button class="article__btn"
+            (click)="switchArticleFavoriteStatus()"
+            mat-raised-button>
+      {{ btnText }}
+    </button>
+    <button class="article__btn"
+            *ngIf="isAdmin"
+            (click)="removeArticle()"
+            mat-raised-button>
+      Удалить новость
+    </button>
+  </div>
+</mat-card>
