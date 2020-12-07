@@ -1,5 +1,5 @@
 <div class="grid">
-  <app-news-item *ngFor="let article of favoriteNews$ | async"
+  <app-news-item *ngFor="let article of favoriteNews$ | async; trackBy: trackBy"
                  [article]="article" [btnText]="btnText"
                  (switchArticleStatus)="onRemoveArticleFromFavorite($event)">
   </app-news-item>

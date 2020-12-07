@@ -6,6 +6,7 @@ import * as NewsActions from 'src/app/news/store/news.actions';
 import * as NewsSelectors from 'src/app/news/store/news.selectors';
 import * as AuthSelectors from 'src/app/auth/store/auth.selectors';
 import { IArticle } from 'src/app/news/models/news-response.model';
+import { trackBy } from 'src/app/core/utils/trackBy';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import { IArticle } from 'src/app/news/models/news-response.model';
 })
 export class HomeComponent implements OnInit {
 
+  trackBy = trackBy;
   news$: Observable<IArticle[]>;
   isAdmin$: Observable<boolean>;
   btnText = 'Добавить в избранное';

@@ -1,5 +1,5 @@
 <div class="grid">
-  <app-news-item *ngFor="let article of news$ | async"
+  <app-news-item *ngFor="let article of news$ | async; trackBy: trackBy"
                  [article]="article"
                  [btnText]="btnText"
                  [isAdmin]="isAdmin$ | async"
