@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.isLoggedIn$ = this.storeAuth.select(AuthSelectors.selectIsLoggedIn)
+    this.isLoggedIn$ = this.storeAuth.select(AuthSelectors.selectIsLoggedIn);
     this.isAdmin$ = this.storeAuth.select(AuthSelectors.selectIsAdmin);
     this.user$ = this.storeAuth.select(AuthSelectors.selectUser);
   }

@@ -13,7 +13,7 @@ import { IArticle } from 'src/app/news/models/news-response.model';
 })
 export class FavoritesComponent implements OnInit {
 
-  favoriteNews$: Observable<IArticle[]>
+  favoriteNews$: Observable<IArticle[]>;
   btnText = 'Убрать из избранного';
 
   constructor(private store: Store<NewsSelectors.INewsAppState>) {}

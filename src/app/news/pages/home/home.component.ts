@@ -14,7 +14,7 @@ import { IArticle } from 'src/app/news/models/news-response.model';
 })
 export class HomeComponent implements OnInit {
 
-  news$: Observable<IArticle[]>
+  news$: Observable<IArticle[]>;
   isAdmin$: Observable<boolean>;
   btnText = 'Добавить в избранное';
 

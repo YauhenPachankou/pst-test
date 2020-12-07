@@ -5,7 +5,7 @@ import { catchError, map, mergeMap } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 
 import * as NewsActions from 'src/app/news/store/news.actions';
-import * as NewsSelectors  from 'src/app/news/store/news.selectors';
+import * as NewsSelectors from 'src/app/news/store/news.selectors';
 import { FetchNewsService } from 'src/app/news/services/fetch-news.service';
 import { INewsResponseModel } from 'src/app/news/models/news-response.model';
 
@@ -26,6 +26,6 @@ export class NewsEffects {
         catchError(() => EMPTY))
       )
     )
-  ))
+  ));
 
 }
